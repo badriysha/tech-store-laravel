@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Data Product</h1>
+    <h1 class="h3 mb-4 text-gray-800">Data Kategori</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($items as $item)
+                        @foreach ($categories as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>

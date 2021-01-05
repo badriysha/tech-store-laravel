@@ -16,9 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $items = Category::all();
-        return view('admin.pages.category.index', [
-            'items' => $items
+        $categories = Category::paginate(10);
+
+        return view('admin.pages.category.index')->with([
+            'categories' => $categories
         ]);
     }
 
@@ -74,7 +75,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::all();
+        $category = Category::findOrFail($id);
         return view('admin.pages.category.index', [
             'category' => $category
         ]);
