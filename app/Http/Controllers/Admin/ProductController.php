@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -58,7 +57,7 @@ class ProductController extends Controller
         ]);
 
         $data = $request->all();
-        $item = Product::create($data);
+        Product::create($data);
 
         return redirect()->route('product.index');
     }
