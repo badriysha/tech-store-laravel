@@ -19,4 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::middleware('auth')->get('logout', function() {
+    Auth::logout();
+    return redirect(route('login'));
+})->name('logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(function() {
+        Route::get('/', 'DashboardController@index')->name('dashboard');
+
+        Route::resource('/product', 'ProductController');
+        Route::resource('/category', 'CategoryController');
+    });
